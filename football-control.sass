@@ -1,0 +1,409 @@
+$pcsOrange: #ffa500;
+// $digitalFont: 'minisystemregular', mono;
+$digitalFont: 'Digital-7', Mono;
+$stdFont: 'Arial';
+// $stdFont: 'coda';
+
+$content-area-width: 77.036974789916rem;
+$content-area-height: 39.9327731092437rem;
+  
+$team-info-cell-width: 16.8rem;
+$team-info-cell-height: 100%;
+$team-name-width: 10.8151260504202rem;
+$team-name-height: 2.66218487394958rem;
+$team-name-font-size: 2.2rem; 
+$team-img-visitor-width: 13.0613445378151rem*1.2;
+$team-img-visitor-height: 6.57226890756302rem*1.2;
+$team-img-home-width: 13.0613445378151rem*.9;
+$team-img-home-height: 12.2294117647059rem*.9;
+
+$clock-grid-width: 43.8rem;
+$clock-grid-height: 11.5rem;
+$clock-grid-margin-width: 0.748739495798319rem;
+$clock-grid-margin-height: .65rem;
+
+$period-time-width: 20.0495798319328rem;
+$period-time-height: 7.56rem;
+
+$btn-clock-grid-width: 10rem;
+$btn-clock-grid-height: 3.4rem;
+
+$btn-height: 2.7453781512605rem;
+$btn-font-size: 1.3rem;
+
+$top-grid-width: 77.4201680672269rem;
+$top-grid-height: 13.9764705882353rem;
+
+$event-name-font-size: 2.8rem;
+
+
+
+
+@font-face { 
+  font-family: "Digital-7 Mono";    
+  src: url("https://upbeat-stonebraker-38f424.netlify.com/assets/fonts/digital-7_mono-webfont.woff") format("woff"),
+       url("https://upbeat-stonebraker-38f424.netlify.com/assets/fonts/digital-7_mono-webfont.woff2") format("woff2"),
+       url("https://upbeat-stonebraker-38f424.netlify.com/assets/fonts/digital-7%20(mono).ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+@font-face { 
+  font-family: 'minisystemregular';    
+  src: url('https://upbeat-stonebraker-38f424.netlify.com/assets/fonts/minisystem-webfont.woff?raw=true') format('woff');
+}
+
+// :root {
+//   font-size: 16px;  // 1rem
+// }
+
+html {
+    margin: 0px; 
+    padding: 0px;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
+    background-color: red;
+    font-size: 100%;          // scale size of board
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
+  color: white;
+  background-color: #404040;
+  font-family: $stdFont;
+}
+.content-area {
+    border: solid .4rem white;
+    padding-left: .6rem;
+    padding-top: 0rem;  
+    padding-right: .6rem;    
+    padding-bottom: 1rem;
+    
+    margin-left: .8rem;  
+    margin-top: 0rem;  
+    margin-right: 1rem;  
+    margin-bottom: 0rem;  
+  
+    width: $content-area-width;
+    height: $content-area-height;
+}
+	
+.hdr-flex {
+    @extend %flex-shared;
+    width: $content-area-width+1rem;
+    // border: solid .4rem white !important;
+		display: inline-flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 0rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0rem;
+}
+.hdr-flex-left {
+  @extend %flex-cell-shared;
+}
+.btn.btn-menu {
+  width: 6rem;
+  margin-right: .5rem;
+}
+.btn.show-score {
+  width: 12rem;  
+}
+.hdr-flex-right {
+  @extend %flex-cell-shared;
+  justify-self: right;
+}
+.event-name {  
+  color: white;
+  font-size: $event-name-font-size;
+}
+
+.top-grid {    
+    @extend %grid-shared;
+		display: grid;
+    grid-gap: 0rem;
+    margin-top: -0.4rem;
+    margin-bottom: 2rem;
+    grid-template-columns: $team-info-cell-width $clock-grid-width $team-info-cell-width;    
+    grid-template-rows: auto;
+    width: $content-area-width;
+    height: $top-grid-height;
+}
+.team-info-cell {
+  @extend %grid-cell-shared;
+  display: inline-flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: space-between;
+  
+  // justify-content: space-around;  
+  
+  width: $team-info-cell-width;
+  height: $team-info-cell-height;
+}
+
+.team-img-visitor {
+  @extend %img-shared;
+  width: $team-img-visitor-width;
+  height: $team-img-visitor-height;
+  margin-top:2.2rem;
+}
+
+.team-img-home {
+  @extend %img-shared;
+  width: $team-img-home-width;
+  height: $team-img-home-height;
+  margin-top:0.7rem;
+}
+.team-name {
+  @extend %grid-cell-shared;  
+  align-self: center;
+  height: $team-name-height;
+  font-size: $team-name-font-size;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: -0.6rem;
+}
+.clock-grid {
+    @extend %grid-cell-shared;
+		display: grid;
+    grid-template-columns: $btn-clock-grid-width $clock-grid-margin-width $period-time-width $clock-grid-margin-width;
+    grid-template-rows: $period-time-height $clock-grid-margin-height $btn-clock-grid-height;
+    border: solid .5rem white !important;
+    border-radius: 1.5rem;
+    padding-left: $clock-grid-margin-width;
+    padding-right: $clock-grid-margin-width;
+    padding-top: $clock-grid-margin-height;
+}
+.clock-grid-margin-width {
+  width: $clock-grid-margin-width;
+}
+
+.clock-minutes {
+  color: $pcsOrange
+}
+.clock-separator {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+.clock-seconds {
+  color: $pcsOrange
+}
+.btn-clock-grid { 
+  margin-bottom: .7rem;
+  height: $btn-clock-grid-height !important;
+}
+.btn-clock-grid-set.btn {
+  width: 5rem;
+  height: $btn-clock-grid-height !important;
+}
+.period-input-flex {
+  @extend %flex-shared;
+  display: inline-flex; 
+  align-items: end;
+  flex-direction:row-reverse;
+  grid-column: 1 / 7;
+}
+.period-time {
+  width: $period-time-width;
+  height: $period-time-height;
+}
+.period-time-label {
+  font-size: 2rem;
+  padding-top: .5rem;
+}
+.input.period-input-minutes {
+  width: 7rem; 
+  margin-right: .7rem;  
+}
+.period-input-separator {
+  margin-left: .5rem; 
+  margin-right: .5rem;
+}
+.period-input-seconds {
+  width: 7rem;  
+  margin-left: 3rem;  
+}
+
+
+.middle-grid {
+		display: grid;
+    grid-gap: .5rem;
+    margin-bottom: 2rem;
+    grid-template-columns: 9.3rem 8.5rem 12rem 8rem 7rem 9.3rem 9.5rem 9.5rem;
+    grid-template-rows: 14rem;
+    height: 10rem;
+    // border: solid 1px green;
+}
+.play-clock-section {
+  // margin-left: 2.2rem;
+  padding-top: 0.5rem;
+}
+.play-clock-label {
+  font-size:2.1rem !important; 
+  text-align: center;    
+  margin-bottom: 0.2rem;
+} 
+.playclock-input {
+  width: 6rem;   
+  text-align:right;
+  margin-right: .5rem;     
+}
+.company_info {
+  margin-top: 1.5rem;
+  padding-right: 4rem;
+  font-size 1.1rem;  
+  white-space: nowrap;    
+}
+
+.stats-grid {
+  display: grid;
+  grid-gap: .5rem;
+  margin-bottom: 2rem;
+  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 11rem 11rem 11rem 17rem 11rem 11rem 11rem;
+  grid-template-rows: 2.5rem 6.2rem;
+  height: 10rem;  
+}
+.stats-section {
+  text-align:center;  
+}
+.stats-section-flex {
+  display: inline-flex; 
+  align-items: left; 
+  flex-direction:row;
+}
+.stats-label {
+  font-size: 2.5rem;
+  text-align: center;
+}
+.togo-ballon-input {
+  width: 5.75rem;  
+  margin-right: .7rem;
+}
+.single-digit-green {
+  margin-right: 1rem; 
+  color:green;
+}
+.double-digit-green {
+  width:7.5rem;
+  margin-right: 1rem; 
+  color:green;
+}
+
+
+.ftr-grid {
+		display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 15rem 10rem 10rem 10rem 10rem 10rem 15rem;
+    grid-template-rows: 2.9rem;
+    height: 2.9rem;
+}
+
+.score-val {
+  color: $pcsOrange;
+  width:9rem;
+  margin-bottom: .7rem;
+}
+.play-clock-val {
+  width:7.5rem;
+}
+.period-input-minutes {
+  width: 5.75rem;
+}
+
+.digital-lg {
+  font-family: $digitalFont;
+  // justify-self: auto;
+  padding-right: .2rem;
+  background-color: black;
+  font-size: 10rem;
+  text-align: right;
+  line-height: .77em;
+}
+
+.digital {
+  font-family: $digitalFont;
+  // justify-self: auto;
+  padding-right: .2rem;
+  background-color: black;
+  font-size: 8.5rem;
+  text-align: right;
+  line-height: .77em;
+}
+
+.btn.btn-sm-increment {
+    width: 4rem; 
+}
+
+.btn.btn-md-increment {
+  width: 6rem;   
+}
+
+.input {
+  font-size: 2rem; 
+  height: 2.39rem;
+  text-align:right;
+}
+
+.input-lg {
+  font-size: 2rem; 
+  height: $btn-clock-grid-height*.88;
+  text-align:right;
+}
+
+.btn {
+  background-color: #dedede;
+  color: black;
+  font-size: $btn-font-size;
+  width: 100%;
+  height: $btn-height;
+  border: solid 1px #adadad;  
+}
+
+.increment-btn-vmargin {
+  margin-bottom: .85rem;
+}
+.increment-btn-hmargin {
+  margin-right: .6rem;
+}
+
+%grid-shared {
+  // border: 3px solid #FFA500;    // brick pink
+  border: 0px;
+}
+
+%grid-cell-shared {
+  // border: 2px solid red;  
+  border: 0px;
+}
+
+%flex-shared {
+//  border: 2px solid chartreuse; // florescent green
+  border: 0px;
+}
+
+%flex-cell-shared {
+  // border: 2px solid red;  
+  border: 0px;
+}
+
+%img-shared {
+  // border: 1px solid pink;  
+  border: 0px;
+}
+
+// always show arrows, works only in chrome
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+// img {
+//   display: block;
+//   width: 100%;
+//   height: auto;
+// }
