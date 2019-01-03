@@ -1,1 +1,224 @@
 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="football-control.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>Football Scoreboard Control</title>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+<div class="hdr-flex">
+  <div class="hdr-flex-left">
+    <button id='menuButton' class='btn btn-menu'>Menu</button>
+    <button id='showScoreButton' class='btn show-score'>Show Scoreboard</button>
+<!--     <span class='logo-text'>Champion AI Systems</span> -->
+  </div>
+  <div class="hdr-flex-right event-name">
+    <label>2019 NCAA Division I Football Championship</label>
+  </div>  
+</div>
+<div class="content-area">
+  <div class="top-grid">
+    
+    <div class="team-info-cell">      
+        <img class="team-img-visitor" src='https://upload.wikimedia.org/wikipedia/en/thumb/7/74/North_Dakota_State_Bison_logo.svg/2880px-North_Dakota_State_Bison_logo.svg.png'/>
+        <div class="team-name">North Dakota St.</div>      
+    </div>
+    
+    <div class="clock-grid">
+        <!-- row 1        Game/Clock Timeout    12:51    Start/Stop Reset -->
+        <div>
+          <button id='gameClockButton' class='btn btn-clock-grid' style=''>Game / Clock</button>
+          <button id='timeoutButton' class='btn btn-clock-grid' style='' >Timeout</button>
+        </div> 
+        <div class='clock-grid-margin-width'></div>
+        <div class='digital-lg period-time'>
+            <label class='clock-minutes' id='clockMinutesValue'>12</label>
+            <label class='clock-separator' id='clockSeparator'>:</label>
+            <label class='clock-seconds' id='clockSecondsValue'>5 1</label>
+        </div>      
+        <div></div>
+        <div>
+          <button id='startStopClockButton' class='btn btn-clock-grid' style=''>Start / Stop</button>
+          <button id='resetClockButton' class='btn btn-clock-grid'>Reset</button>
+        </div>
+        <!-- row 2 -->      
+
+        <div class='clock-grid-margin-height' style='grid-column: 1 / 4;'></div>
+        <!-- row 3        Period Time:      |0|   |0.0|     Set Button-->      
+        <div class='period-input-flex'>        
+          <button id='setClockButton' class='btn btn-clock-grid btn-clock-grid-set'>Set</button>                        
+          <div class='clock-grid-margin-width'></div>
+          <input class='input-lg period-input-minutes' type='number' id='periodInputMinutes' min='0' max='99' value='0.0'>
+          <span class='period-input-separator period-time-label'>:</span>
+          <input class='input-lg period-input-seconds' type='number' id='periodInputSeconds' min='0' max='99' value='0'>
+          <span class='period-time-label'>Period Time:</span>                    
+        </div>        
+      
+    </div>
+    
+    <div class="team-info-cell">
+          <img class='team-img-home' src='https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Eastern_Washington_Eagles_logo.svg/513px-Eastern_Washington_Eagles_logo.svg.png'/>
+          <div class='team-name'>Eastern Wash.</div>
+    </div>
+  </div>
+  
+  
+  <div class="middle-grid">
+    
+    <div class=''>
+      <div class='digital score-val'>
+        <label id='visitorScoreValue'>14</label>
+      </div>      
+      <button id='visitorMinus1Button' class='btn btn-sm-increment'>- 1</button>
+      <span class='increment-btn-hmargin'></span>
+      <button id='visitorPlus6Button' class='btn btn-sm-increment'>+ 6</button>
+    </div>
+    
+    <div>
+      <button id='visitorPlus1Button' class='btn btn-sm-increment'>+ 1</button>
+      <div class='increment-btn-vmargin'></div>
+      <button id='visitorPlus2Button' class='btn btn-sm-increment'>+ 2</button>
+      <div class='increment-btn-vmargin'></div>
+      <button id='visitorPlus3Button' class='btn btn-sm-increment'>+ 3</button>      
+    </div>
+  
+    <div class="play-clock-section" >      
+        <div class="play-clock-label" style='font-size:2rem; text-align: center;'>Play Clock</div>
+      <div class='period-input-flex'>        
+          <button class='btn btn-clock-grid btn-clock-grid-set'>Set</button>                                  
+          <input class='input-lg playclock-input' type='number' id='periodInputSeconds' min='0' max='99' value='0'>
+      </div>
+    </div>
+    
+    <div class="" style='justify-self: center'>
+      <div class='digital play-clock-val'>
+        <label id='playClockValue' style='color:red'>8</label>
+      </div>
+    </div>
+    
+    <div class="">      
+        <button class='btn' style='width: 6.7rem; height: 6.3rem;'>Start / Stop</button>      
+    </div>
+    
+    <div>
+        <button class='btn btn-md-increment' style='width: 10rem;'>Reset (#1)</button>
+      <div class='increment-btn-vmargin'></div>
+        <button class='btn btn-md-increment' style='width: 10rem;'>Reset (#2)</button>
+    </div>
+    
+    <div style='justify-self: right'>
+      <button class='btn btn-sm-increment'>+ 1</button>
+      <div class='increment-btn-vmargin'></div>
+      <button class='btn btn-sm-increment'>+ 2</button>
+      <div class='increment-btn-vmargin'></div>
+      <button class='btn btn-sm-increment'>+ 3</button>      
+    </div>
+    
+    <div class="" style='justify-self: right'>
+      <div class='digital score-val'>
+        <label id='homeScoreValue'>7</label>
+      </div>
+      <button class='btn btn-sm-increment'>+ 6</button>
+      <span class='increment-btn-hmargin'></span>
+      <button class='btn btn-sm-increment'>- 1</button>
+    </div>
+  </div>
+  <div class="stats-grid">    
+    <div class="stats-label">T.O.L.</div>
+    <div class="stats-label">Down</div>
+    <div class="stats-label">To Go</div>
+    <div class="stats-label"></div>
+    <div class="stats-label">Ball On</div>
+    <div class="stats-label">Qtr</div>
+    <div class="stats-label">T.O.L.</div>
+    <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital single-digit-green'>
+          <label id='clockSecondsValue'>2</label>
+        </span>
+        <span>
+          <button class='btn btn-sm-increment'>+ 1</button>
+          <div class='increment-btn-vmargin'></div>
+          <button class='btn btn-sm-increment'>- 1</button></br>
+        </span>      
+      </div>
+    </section>
+    <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital single-digit-green'>
+          <label id='clockSecondsValue'>3</label>
+        </span>
+        <span>
+          <button class='btn btn-md-increment'>+ 1</button>
+          <div class='increment-btn-vmargin'></div>
+          <button class='btn btn-md-increment'>Reset</button></br>
+        </span>      
+      </div>
+    </section>
+    <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital double-digit-green'>
+          <label id='clockSecondsValue'>4</label>
+        </span>    
+      </div>
+    </section>
+  <section class='stats-section' style='margin-top: -5.3rem'>
+    <div class="" style=''>
+      <img style='width: 8rem; height: 7rem;' src='https://upload.wikimedia.org/wikipedia/en/thumb/7/74/North_Dakota_State_Bison_logo.svg/2880px-North_Dakota_State_Bison_logo.svg.png'/>
+    </div>
+    <br>
+    <input class='input togo-ballon-input' type='number' id='toGoInput' min='0' max='99' value='4'>
+    <input class='input togo-ballon-input' type='number' id='ballOnInput' min='0' max='99' value='39'>
+  </section>
+  <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital double-digit-green'>
+          <label id='clockSecondsValue'>39</label>
+        </span>    
+      </div>
+  </section>
+  <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital single-digit-green'>
+          <label id='clockSecondsValue'>2</label>
+        </span>
+        <span>
+          <button class='btn btn-sm-increment'>+ 1</button>
+          <div class='increment-btn-vmargin'></div>
+          <button class='btn btn-sm-increment'>- 1</button></br>
+        </span>
+      </div>
+    </section>
+  <section class='stats-section'>
+      <div class='stats-section-flex'>            
+        <span class='digital single-digit-green'>
+          <label id='clockSecondsValue'>3</label>
+        </span>
+        <span>
+          <button class='btn btn-sm-increment'>+ 1</button>
+          <div class='increment-btn-vmargin'></div>
+          <button class='btn btn-sm-increment'>- 1</button></br>
+        </span>      
+      </div>
+  </section>
+</div>
+
+
+
+  <div class="ftr-grid">
+    <div></div>
+    <div><button class='btn'>Help</button></div>
+    <div><button class='btn'>Options</button></div>
+    <div><button class='btn'>Buzzer</button></div>
+    <div><button class='btn'>New Game</button></div>
+    <div><button class='btn'>Exit</button></div>
+    <div></div>    
+  </div>
+</div>  
+</body>
+</html>
