@@ -5,3 +5,9 @@
 	Access-Control-Allow-Origin = "*"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+
+# Apple App Site Association file - must be served without Content-Type
+[[headers]]
+  for = "/docs/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
