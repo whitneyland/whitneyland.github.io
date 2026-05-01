@@ -1,108 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Links - LSL Champions</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: #f5f5f7;
-            color: #1d1d1f;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 30px;
-        }
-        .status {
-            background: #ecfdf5;
-            border: 1px solid #10b981;
-            color: #065f46;
-            padding: 12px 16px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .code {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 16px;
-            border-radius: 8px;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 14px;
-            overflow-x: auto;
-        }
-        .link-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-        }
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Lee Whitney</title>
+<meta http-equiv="refresh" content="0; url=resume.pdf">
+<link rel="canonical" href="resume.pdf">
 </head>
 <body>
-    <div class="container">
-        <h1>iOS Universal App Links</h1>
-        
-        <div class="status">
-            ✅ Universal App Links configuration is active
-        </div>
-        
-        <p>This page hosts the iOS Universal App Links configuration for LSL Champions apps. Universal App Links allow your iOS app to handle specific URLs and provide a seamless experience between your website and mobile app.</p>
-        
-        <div class="link-section">
-            <h3>Configuration Details</h3>
-            <p><strong>Apple App Site Association file:</strong> <code>/docs/.well-known/apple-app-site-association</code></p>
-            <p><strong>Bundle ID:</strong> <code>com.whitneyland.mcpplay</code></p>
-            <p><strong>Supported paths:</strong> <code>/play/*</code></p>
-            
-            <h4>Example Universal Links:</h4>
-            <div class="code">
-https://whitneyland.github.io/play/game/12345<br>
-https://whitneyland.github.io/play/scoreboard/football<br>
-https://whitneyland.github.io/play/session/abc123
-            </div>
-        </div>
-        
-        <div class="link-section">
-            <h3>For Developers</h3>
-            <p>To implement Universal App Links in your iOS app:</p>
-            <ol>
-                <li>Add the Associated Domains capability to your app</li>
-                <li>Update your app's entitlements with: <code>applinks:whitneyland.github.io</code></li>
-                <li>Replace <code>TEAMID</code> in the association file with your actual Team ID (Bundle ID is already set to <code>com.whitneyland.mcpplay</code>)</li>
-                <li>Implement URL handling in your AppDelegate or SceneDelegate</li>
-            </ol>
-            
-            <h4>Verification</h4>
-            <p>Test your Universal App Links configuration with Apple's validator:</p>
-            <div class="code">
-curl -v https://whitneyland.github.io/docs/.well-known/apple-app-site-association
-            </div>
-            
-            <p><strong>Note:</strong> The association file is served with <code>Content-Type: application/json</code> via the <code>_headers</code> file for GitHub Pages compatibility.</p>
-        </div>
-        
-        <div style="margin-top: 40px; text-align: center; color: #64748b;">
-            <p><a href="../">← Back to LSL Champions</a></p>
-        </div>
-    </div>
+<p><a href="resume.pdf">Resume</a></p>
 </body>
 </html>
